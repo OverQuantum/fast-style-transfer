@@ -166,3 +166,29 @@ class StyleContentModel(tf.keras.models.Model):
         )
         style_outputs, content_outputs = self.vgg(preprocessed_input)
         return style_outputs, content_outputs
+
+# all the same, but with VGG19
+class StyleContentModel19(tf.keras.models.Model):
+    def __init__(self, style_layers, content_layers):
+        super(StyleContentModel19, self).__init__()
+        vgg = tf.keras.applications.VGG19(
+            include_top=False, weights="imagenet"
+        )
+        vgg.trainable = False
+
+        style_outputs = [vgg.get_layer(name).output for name in style_layers]
+        content_outputs = [
+            vgg.get_layer(name).output for name in content_layers
+        ]
+
+        self.vgg = tf.keras.Model(
+            [vgg.input], [style_outputs, content_outputs]
+        )
+        self.vgg.trainable = False
+
+    def call(self, inputs):
+        preprocessed_input = tf.keras.applications.vgg19.preprocess_input(
+            inputs
+        )
+        style_outputs, content_outputs = self.vgg(preprocessed_input)
+        return style_outputs, content_outputs
