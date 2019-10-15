@@ -78,6 +78,10 @@ If you don't already have dataset in TensorFlow Datasets folder and format, then
   <img src="images/output/IMG11190_udnie_479neg.jpg" height="174px">
 </div>
 
+Training: 
+udnie_479neg - style-weight 100, content-weight 10, epoch 1, batch 16, learning-rate 0.001, vgg19
+
+
 ## NaN explosion prevention
 
 On default parameters image [COCO_train2014_000000105396.jpg](http://images.cocodataset.org/train2014/COCO_train2014_000000105396.jpg) cropped to white rectangle without any details which (by confusing content estimator?) with ~70% chances turns few weights of network to NaNs or with ~10% chances a lot of weights and so whole NN became unusable. To prevent this dataset shuffle turned off and specific step is blocked, but it is valid only for default batch-size = 16. Network with few NaNs seems to not work on CPU while could train and work on GPU.
