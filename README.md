@@ -8,9 +8,7 @@ The algorithm is based on [Perceptual Losses for Real-Time Style Transfer and Su
 with the addition of [Instance Normalization](https://arxiv.org/pdf/1607.08022.pdf).
 
 <p align="center">
-    <img src="images/content/amber.jpg" height="200px">
-    <img src="images/style/wave.jpg" height="200px">
-    <img src="images/output/wave-styled.png" height="440px">
+    <img src="images/output/IMG11190_udnie_479neg.jpg" height="500px">
 </p>
 
 ## Requirements
@@ -72,20 +70,17 @@ If you don't already have dataset in TensorFlow Datasets folder and format, then
 ## Example models
 
 <div align="center">
-  <img src="images/content/amber.jpg" height="174px">		
+  <img src="images/content/IMG11190.jpg" height="174px">		
 </div>
 
 <div align="center">
-  <img src="images/style/mosaic.jpg" height="174px">
-  <img src="images/output/mosaic-styled.png" height="174px">
-  <img src="images/output/wave-styled.png" height="174px">
-  <img src="images/style/wave.jpg" height="174px" width="174px">
-  <br>
-  <img src="images/style/the-scream.jpg" height="174px">
-  <img src="images/output/the-scream-styled.png" height="174px">
-  <img src="images/output/udnie-styled.png" height="174px">
-  <img src="images/style/udnie.jpg" height="174px">
+  <img src="images/style/udnie_479neg.jpg" height="174px">
+  <img src="images/output/IMG11190_udnie_479neg.jpg" height="174px">
 </div>
+
+Training: 
+udnie_479neg - style-weight 100, content-weight 10, epoch 1, batch 16, learning-rate 0.001, vgg19
+
 
 ## NaN explosion prevention
 
